@@ -4,6 +4,7 @@ import java.io.*;
 import java.net.Socket;
 import java.net.SocketException;
 import java.net.SocketTimeoutException;
+import java.nio.charset.StandardCharsets;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.regex.Matcher;
@@ -27,7 +28,7 @@ public class Handler implements Runnable {
 
     @Override
     public void run() {
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream(), "ISO-8859-1"))) {
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream(), StandardCharsets.ISO_8859_1))) {
             String request = reader.readLine();
             logger.info("Received request: " + request);
             Matcher matcher = CONNECT_PATTERN.matcher(request);
@@ -59,7 +60,7 @@ public class Handler implements Runnable {
 
             String response = "HTTP/" + httpVersion + " 200 Connection established\r\n" +
                     "Proxy-Agent: SimpleProxy/1.0\r\n\r\n";
-            clientOutput.write(response.getBytes("ISO-8859-1"));
+            clientOutput.write(response.getBytes(StandardCharsets.ISO_8859_1));
             clientOutput.flush();
 
             clientSocket.setSoTimeout(SOCKET_TIMEOUT);
@@ -91,9 +92,7 @@ public class Handler implements Runnable {
                     } else {
                         Thread.sleep(10);
                     }
-                } catch (SocketTimeoutException | InterruptedException e) {
-                    continue;
-                }
+                } catch (SocketTimeoutException | InterruptedException ignored) {}
             }
         } catch (SocketException e) {
             logger.log(Level.INFO, "Connection closed for " + direction, e);
