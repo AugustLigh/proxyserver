@@ -59,7 +59,7 @@ public class Handler implements Runnable {
              BufferedInputStream clientInput = new BufferedInputStream(clientSocket.getInputStream())) {
 
             String response = "HTTP/" + httpVersion + " 200 Connection established\r\n" +
-                    "Proxy-Agent: SimpleProxy/1.0\r\n\r\n";
+                    "Proxy-Agent: AugustsProxy/1.0\r\n\r\n";
             clientOutput.write(response.getBytes(StandardCharsets.ISO_8859_1));
             clientOutput.flush();
 
