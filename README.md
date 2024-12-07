@@ -1,45 +1,44 @@
 
 # Simple Java Proxy
 
-An easy way to create a proxy in java, with the ability to compile into native code!
+A lightweight and efficient proxy server written in Java, designed for ease of use and capable of being compiled into native code for optimal performance.
 
+## 🚀 Features
 
-## Run Locally
+- Multi-threaded architecture for high performance.  
+- Utilizes modern Java tools for efficiency.  
+- Easy setup and usage.  
 
-Clone the project
+## 📥 Run Locally  
 
-```bash
-  git clone https://github.com/AugustLigh/proxyserver
-```
+1. **Clone the repository**  
+   ```bash
+   git clone https://github.com/AugustLigh/proxyserver
+   ```  
 
-Go to the project directory
+2. **Navigate to the project directory**  
+   ```bash
+   cd proxyserver
+   ```  
 
-```bash
-  cd proxyserver
-```
+3. **Start the server**  
+   ```bash
+   gradle run
+   ```  
 
-Start the server
+   Or download the precompiled version directly from the repository.  
 
-```bash
-  gradle run
-```
-Or download from repo.
+## 🛠 Optimizations  
 
-## Optimizations
+- Leverages multiple threads for better handling of concurrent connections.  
+- Implements modern Java utilities for improved performance.  
 
-This code uses multiple threads and modern java tools to provide better performance.
+## 🛤 Roadmap  
 
+- 🐞 Fix known and reported bugs.  
+- ⚡ Further enhance performance.  
+- 🧹 Refactor and improve code quality.  
 
-## Roadmap
+## 📜 License  
 
-- Fix the bugs
-
-- Improve performance
-
-- improve code quality
-
-
-## License
-
-[apache-2.0](https://choosealicense.com/licenses/apache-2.0/)
-
+This project is licensed under the [Apache 2.0 License](https://choosealicense.com/licenses/apache-2.0/).  
